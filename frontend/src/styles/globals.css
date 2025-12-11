@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-beige: #f8f4f0;
+  --secondary-beige: #f0e6dc;
+  --accent-gold: #d4af37;
+  --text-dark: #2d3748;
+  --text-light: #718096;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--primary-beige);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  min-width: 750px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  background: linear(135deg, var(--accent-gold), #e6c34a);
+  color: rgb(109, 109, 109);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear(135deg, var(--text-dark), var(--text-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #8B5CF6;
+  background-color: #F3F4F6;
+}
+
+
+/* Heart Button Styles */
+.btn-heart {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  outline: none; 
+}
+
+.btn-heart:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-heart::after {
+  content: "like";
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  font-size: 17px;
+  color: rgb(36, 36, 36);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s linear;
+  top: 115%;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  transition: 0.2s linear;
+}
+
+.icon path {
+  fill: black;
+  transition: 0.2s linear;
+}
+
+.btn-heart:hover > .icon {
+  transform: scale(1.2);
+}
+
+.btn-heart:hover > .icon path {
+  fill: rgb(177, 139, 189);
+}
+
+.btn-heart:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: 75%;
+}
+
+/* Style pour le cœur rempli quand favori */
+.btn-heart.favorite {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.btn-heart.favorite .icon path {
+  fill: #ef4444;
+}
