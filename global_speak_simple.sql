@@ -12,20 +12,7 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `global_speak_simple`
---
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `admin`
---
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
@@ -43,10 +30,6 @@ INSERT INTO `admin` (`id`, `username`, `password`, `created_at`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Stand-in structure for view `admin_stats`
--- (See below for the actual view)
---
 CREATE TABLE `admin_stats` (
 `total_students` bigint(21)
 ,`total_teachers` bigint(21)
@@ -57,9 +40,6 @@ CREATE TABLE `admin_stats` (
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `benefits`
---
 
 CREATE TABLE `benefits` (
   `id` int(11) NOT NULL,
@@ -115,7 +95,6 @@ INSERT INTO `courses` (`id`, `title`, `description`, `teacher_id`, `language`, `
 
 --
 -- Stand-in structure for view `course_details`
--- (See below for the actual view)
 --
 CREATE TABLE `course_details` (
 `id` int(11)
@@ -383,7 +362,7 @@ ALTER TABLE `benefits`
 -- Constraints for table `courses`
 --
 ALTER TABLE `courses`
-  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`);
+  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `enrollments`
@@ -399,7 +378,3 @@ ALTER TABLE `favorites`
   ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
