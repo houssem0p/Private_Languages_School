@@ -7,7 +7,7 @@ Projet web Fullstack : **Frontend React (Vite)** + **Backend PHP** + **MySQL**.
 ## Prérequis
 
 - XAMPP (Apache + MySQL)
-- Node.js + npm
+- php
 
 ---
 
